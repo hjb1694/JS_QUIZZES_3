@@ -12,7 +12,7 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 /*
 @route GET /user/register
 */
-router.get('/register', isLoggedIn, (req, res) => res.render('register', {title : 'Register'}));
+router.get('/register', isLoggedIn, (req, res) => res.render('register', {title : 'Register', userLoggedIn : req.session.loggedIn}));
 
 /*
 @route POST /user/register
@@ -72,7 +72,7 @@ router.post('/register', isLoggedIn, [
 */
 router.get('/login', isLoggedIn, (req, res) => {
 
-    res.render('login', {title : 'login'});
+    res.render('login', {title : 'login', userLoggedIn : req.session.isLoggedIn});
 
 });
 

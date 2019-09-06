@@ -4,7 +4,11 @@
         JavaScript Quizzes
     </div>
     <div class="nav">
-        <a href="#" class="nav__item">Login</a>
-        <a href="#" class="nav__item">Register</a>
+        <% if(!userLoggedIn){ %>
+        <a href="/user/login" class="nav__item">Login</a>
+        <a href="/user/register" class="nav__item">Register</a>
+        <% }else{ %>
+        <a href="/user/logout" class="nav__item">Logout</a>
+        <% } %>
     </div>
 </header>

@@ -39,7 +39,8 @@ router.get('/', loggedInFalse, (req, res) => {
     .then(quizzes => {
         res.render('allQuizzes', {
             title : 'All Quizzes', 
-            quizzes
+            quizzes, 
+            userLoggedIn : req.session.loggedIn
         });
     })
     .catch(e => {
@@ -66,7 +67,8 @@ router.get('/:id', loggedInFalse, (req, res) => {
         res.render('quiz', {
             title : `Quiz ${req.params.id}`,
             items, 
-            quizId : req.params.id
+            quizId : req.params.id, 
+            userLoggedIn : req.session.loggedIn
         });
 
     }).catch(e => {
@@ -108,7 +110,8 @@ router.post('/quizResult', loggedInFalse, (req,res) => {
 
         res.render('quizResults', {
             title : 'Quiz Results',
-            results
+            results, 
+            userLoggedIn : req.session.loggedIn
         });
         
 
