@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/headerNav.ejs') %>
+        <table class="allQuizzesTable">
+            <% for(quiz of quizzes) { %>
+            <tr>
+                <td>
+                    <%= quiz.name %>
+                </td>
+                <td>
+                    <%= quiz.description %>
+                </td>
+                <td>
+                    <a href="/quiz/<%= quiz.id %>">Take Quiz &rarr;</a>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </body>
+</html>

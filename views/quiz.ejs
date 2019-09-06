@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/headerNav.ejs') %>
+        
+        <div class="quiz-container">
+            <form action="/quiz/quizResult" method="POST" id="quizForm">
+                <% for(item of items) { %>
+
+                    <div class="question-tile">
+                        <div class="question-tile__question"><%- item.questionContent %></div>
+                        <div class="question-tile__answer-group">
+                        <% for(answer of item.Answers) { %>
+                            <p class="question-tile__option">
+                                <input type="radio" name="<%= item.id %>" value="<%= answer.answerNumber %>"/> 
+                                <%= answer.answerContent %>
+                            </p>
+                        <% } %>
+                        </div>
+                    </div>
+
+
+                <% } %>
+                <input type="hidden" name="quizId" value="<%= quizId %>"/>
+                <button id="subbut" class="btn btn--primary">Submit</button>
+            </form>
+        </div>
+        <script type="text/javascript" src="/js/quiz.bundle.js"></script>
+    </body>
+</html>

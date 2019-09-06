@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/headerNav.ejs') %>
+       
+        <div class="quiz-container">
+            <h1 style="margin-top:2rem;">Results</h1>
+
+            <% for(item of results) { %>
+                <div class="question-tile">
+                    <div class="question-tile__question"><%- item.question %></div>
+                    <ol class="question-tile__answer-list">
+                    <% for(answer of item.possibleAnswers) { %>
+                        <li><%= answer.answerContent %></li>
+                    <% } %>
+                    </ol>
+                    <p style="font-size:1.4rem;margin-top:1rem;"><strong>Your Answer:</strong> <%= item.userAnswer %></p>
+                    <p style="font-size:1.4rem;margin-top:1rem;"><strong>Correct Answer:</strong> <%= item.correctAnswer %></p>
+                    <p class="question-tile__score"><%= item.score %></p>
+                </div>
+            <% } %>
+        </div>
+    </body>
+</html>

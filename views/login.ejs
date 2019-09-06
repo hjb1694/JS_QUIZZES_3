@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/headerNav.ejs') %>
+        <main class="p20">
+            <form class="login-form">
+                <h1>Login</h1>
+                <div class="form-group">
+                    <label for="email" class="label">Email</label>
+                    <input id="email" type="email" class="text-input"/>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="label">Password</label>
+                    <input id="password" type="password" class="text-input"/>
+                </div>
+                <button type="submit" id="subbut" class="btn btn--primary">Login</button>
+                <div class="errbox"></div>
+            </form>
+        </main>
+        <script type="text/javascript" src="/js/login.bundle.js"></script>
+    </body>
+</html>
